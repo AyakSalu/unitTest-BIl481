@@ -29,7 +29,7 @@ public class TestCompute {
     c = new Compute(mq);
     when(mq.size()).thenReturn(5);
     when(mq.contains(anyString())).thenReturn(false);
-    c.countNumberOfOccurrences("123");
+    assertEquals(0, c.countNumberOfOccurrences("123"));
   }
 
   @Test
@@ -39,7 +39,7 @@ public class TestCompute {
     when(mq.size()).thenReturn(3);
     when(mq.contains(anyString())).thenReturn(true);
     when(mq.getAt(anyInt())).thenReturn("123");
-    c.countNumberOfOccurrences("123");
+    assertEquals(3,c.countNumberOfOccurrences("123"));
   }
   @Test
   public void testCounter2(){
@@ -47,8 +47,8 @@ public class TestCompute {
     c = new Compute(mq);
     when(mq.size()).thenReturn(3);
     when(mq.contains(anyString())).thenReturn(true);
-    when(mq.getAt(anyInt())).thenReturn("133");
-    c.countNumberOfOccurrences("123");
+    when(mq.getAt(anyInt())).thenReturn("456");
+    assertEquals(0,c.countNumberOfOccurrences("123"));
   }
 
 }
