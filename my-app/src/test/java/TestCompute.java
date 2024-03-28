@@ -26,29 +26,29 @@ public class TestCompute {
   @Test
   public void testContains(){
     MessageQueue mq = mock(MessageQueue.class);
+    c = new Compute(mq);
     when(mq.size()).thenReturn(5);
     when(mq.contains(anyString())).thenReturn(false);
-    c = new Compute(mq);
     c.countNumberOfOccurrences("123");
   }
 
   @Test
   public void testCounter(){
     MessageQueue mq = mock(MessageQueue.class);
+    c = new Compute(mq);
     when(mq.size()).thenReturn(3);
     when(mq.contains(anyString())).thenReturn(true);
-    //when(anyString().equals(anyString())).thenReturn(true);
-    c = new Compute(mq);
+    when(mq.getAt(anyInt())).thenReturn("123");
     c.countNumberOfOccurrences("123");
   }
   @Test
   public void testCounter2(){
     MessageQueue mq = mock(MessageQueue.class);
+    c = new Compute(mq);
     when(mq.size()).thenReturn(3);
     when(mq.contains(anyString())).thenReturn(true);
-    when(anyString().equals(mq.getAt(anyInt()))).thenReturn(false);
-    c = new Compute(mq);
+    when(mq.getAt(anyInt())).thenReturn("133");
     c.countNumberOfOccurrences("123");
   }
- 
+
 }
